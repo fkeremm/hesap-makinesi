@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hesap Makinesi - FurkanKerem</title>
+    <!--Coded By FurkanKerem-->
+</head>
+<body>
+    <div class="container center-screen">
+
+        <div class="wrapper">
+            <div class="calculator-body ">
+                <div class="display-screen">
+                        <p class="display">
+                            
+                        </p>
+                    </div>
+                    <div class="row-1">
+                        <button class="b-r-1-c-1 special-button" onclick="makeZero()">AC</button>
+                        <button class="b-r-1-c-2" onclick="deleteElement()">DEL</button>
+                        <button class="b-r-1-c-3" onclick="sendToDisplay('/')">÷</button>
+                    </div>
+                    <div class="row-2">
+                        <button class="b-r-2-c-1" onclick="sendToDisplay(1)">1</button>
+                        <button class="b-r-2-c-2" onclick="sendToDisplay(2)">2</button>
+                        <button class="b-r-2-c-3" onclick="sendToDisplay(3)">3</button>
+                        <button class="b-r-2-c-4" onclick="sendToDisplay('*')">X</button>
+                    </div>
+                    <div class="row-3">
+                        <button class="b-r-3-c-1" onclick="sendToDisplay(4)">4</button>
+                        <button class="b-r-3-c-2" onclick="sendToDisplay(5)">5</button>
+                        <button class="b-r-3-c-3" onclick="sendToDisplay(6)">6</button>
+                        <button class="b-r-3-c-4" onclick="sendToDisplay('+')">+</button>
+                        
+                    </div>
+                    <div class="row-4">
+                        <button class="b-r-4-c-1" onclick="sendToDisplay(7)">7</button>
+                        <button class="b-r-4-c-2" onclick="sendToDisplay(8)">8</button>
+                        <button class="b-r-4-c-3" onclick="sendToDisplay(9)">9</button>
+                        <button class="b-r-4-c-4" onclick="sendToDisplay('-')">-</button>
+                        
+                    </div>
+                    <div class="row-5">
+                        <button class="b-r-5-c-1" onclick="sendToDisplay('.')">.</button>
+                        <button class="b-r-5-c-2" onclick="sendToDisplay(0)">0</button>
+                        <button class="b-r-5-c-3 special-button" onclick="evaluateExpression()" >=</button>
+                    </div>
+                
+            </div>
+        </div>
+        </div>
+<style>
+    html{
+    background: rgb(0,177,242);
+    background: linear-gradient(90deg, rgba(0,177,242,1) 0%, rgba(0,177,242,1) 18%, rgba(0,246,120,1) 100%, rgba(0,212,255,1) 100%);
+    user-select: none;
+}
+.wrapper{
+    height:381px;
+    width:289.4px;
+    font-family: "Gotham Rounded", sans-serif;
+    background-color: rgb(248, 248, 248);
+}
+.display-screen{
+    background-color: #2b2b2b;
+    height: 70px;
+    width:289px;
+}
+button{
+    border:0px;
+    margin-top:2px;
+    height:60px;
+    width:69px;
+    font-size:16px;
+}
+button:hover{
+    cursor:pointer;
+    background-color:#575757;
+    color:white;
+
+}
+button:active{
+        background-color:#2b2b2b;
+
+}
+.special-button{
+    width:142px;
+}
+.display{
+    color:white;
+    font-size:20px;
+    float: right;
+    margin-right:4px ;
+}
+.center-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+</style>
+<script>
+    function makeZero(){
+    var textArea = document.querySelector('.display');
+    textArea.innerHTML = "";
+}
+function sendToDisplay(el){
+    var toCalculate = document.querySelector('.display');
+    var tempOperation = toCalculate.innerText+el;
+    toCalculate.innerText = tempOperation;
+}
+function deleteElement(){
+    var textArea = document.querySelector('.display');
+    var equation = textArea.innerText;
+    equation = (equation.slice(0,equation.length-1))
+    textArea.innerText=equation;
+    
+}
+function evaluateExpression(){
+    var textArea = document.querySelector('.display');
+    var equation = textArea.innerText;
+    var result = eval(equation);
+    textArea.innerText=result;
+
+}
+</script>
+</body>
+</html>
